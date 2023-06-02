@@ -1,14 +1,5 @@
-const { createProxyMiddleware } = require('http-proxy-middleware');
+const cors = require('cors');
 
-module.exports = function (app) {
-  app.use(
-    '/api',
-    createProxyMiddleware({
-      target: 'https://www.omdbapi.com',
-      changeOrigin: true,
-      pathRewrite: {
-        '^/api': '/',
-      },
-    })
-  );
+module.exports = function(app) {
+  app.use(cors());
 };
